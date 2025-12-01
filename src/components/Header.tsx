@@ -1,0 +1,145 @@
+import { Facebook, Twitter, Linkedin, User, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { useAuth } from "@/context/AuthContext";
+
+const Header = () => {
+
+    const { isAuthenticated } = useAuth();
+    const navLinks = [
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+        { name: "Services", path: "/services" },
+        { name: "Destinations", path: "/destinations" },
+        { name: "Study Abroad", path: "/study-abroad" },
+        { name: "Contacts", path: "/contacts" },
+    ];
+
+    return (
+        <header className="bg-white shadow-sm sticky top-0 z-50">
+            {/* Top Bar - Hidden on Mobile */}
+            <div className="hidden md:flex bg-tourigo-primary text-white py-2 px-4 md:px-12 text-xs justify-between items-center">
+                <div className="flex gap-4">
+                    <span>+233-552-945 - 333</span>
+                    <span>inf@mytravelconsult.com</span>
+                </div>
+                <div className="flex gap-4">
+                    <Facebook className="w-3 h-3" />
+                    <Twitter className="w-3 h-3" />
+                    <Linkedin className="w-3 h-3" />
+                </div>
+            </div>
+
+            <div className="py-4 px-4 md:px-12 flex items-center justify-between">
+                {/* Logo */}
+                <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-tourigo-accent rounded-full flex items-center justify-center text-white font-bold">
+                        T
+                    </div>
+                    <Link to="/" className="text-2xl font-bold text-tourigo-primary tracking-tight">
+                        Travel Consult
+                    </Link>
+                </div>
+
+                {/* Desktop Navigation */}
+                <nav className="hidden lg:flex items-center gap-8">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            to={link.path}
+                            className="text-sm font-medium text-gray-700 hover:text-tourigo-accent transition-colors"
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                </nav>
+
+                {/* Desktop Actions */}
+                <div className="hidden md:flex items-center gap-6">
+                    <div className="flex items-center gap-4 text-gray-600">
+                        <a href="https://facebook.com" className="hover:text-tourigo-primary transition-colors"><Facebook className="w-5 h-5" /></a>
+                        <a href="https://twitter.com" className="hover:text-tourigo-primary transition-colors"><Twitter className="w-5 h-5" /></a>
+                        <a href="https://linkedin.com" className="hover:text-tourigo-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
+                    </div>
+
+                    <div className="h-6 w-px bg-gray-200" />
+
+                    <Link to={isAuthenticated ? "/dashboard" : "/login"} className="hover:text-tourigo-primary transition-colors">
+                        <User className="w-5 h-5" />
+                    </Link>
+
+                    <Link to="/booking">
+                        <Button className="bg-tourigo-primary hover:bg-tourigo-primary/90 text-white rounded-full px-6">
+                            Book Now
+                        </Button>
+                    </Link>
+                </div>
+
+                {/* Mobile Menu Trigger */}
+                <div className="lg:hidden">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button variant="ghost" size="icon" className="hover:bg-gray-100 rounded-full">
+                                <Menu className="w-6 h-6 text-gray-900" />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900 border-l-gray-800 text-white p-0">
+                            <div className="flex flex-col h-full">
+                                <div className="p-6 border-b border-gray-800">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-8 h-8 bg-tourigo-accent rounded-full flex items-center justify-center text-white font-bold">
+                                            T
+                                        </div>
+                                        <span className="text-xl font-bold tracking-tight">My Travel Consult</span>
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col gap-8 p-6 mt-4">
+                                    <nav className="flex flex-col gap-6">
+                                        {navLinks.map((link, idx) => (
+                                            <SheetClose asChild key={link.name}>
+                                                <Link
+                                                    to={link.path}
+                                                    className="text-lg font-medium text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-3 animate-in slide-in-from-right-8 fade-in fill-mode-forwards"
+                                                    style={{ animationDelay: `${idx * 100}ms` }}
+                                                >
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-tourigo-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                    {link.name}
+                                                </Link>
+                                            </SheetClose>
+                                        ))}
+                                    </nav>
+
+                                    <div className="flex flex-col gap-4 mt-auto animate-in slide-in-from-bottom-8 fade-in duration-700 delay-500">
+                                        <SheetClose asChild>
+                                            <Link to="/booking">
+                                                <Button
+                                                    className="bg-tourigo-accent hover:bg-orange-600 text-white rounded-full w-full h-12 text-lg font-bold shadow-lg shadow-orange-900/20"
+                                                >
+                                                    Book Now
+                                                </Button>
+                                            </Link>
+                                        </SheetClose>
+
+                                        <SheetClose asChild>
+                                            <Link
+                                                to={isAuthenticated ? "/dashboard" : "/login"}
+                                                className="flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors py-2"
+                                            >
+                                                <User className="w-5 h-5" />
+                                                <span className="font-medium">My Account</span>
+                                            </Link>
+                                        </SheetClose>
+                                    </div>
+                                </div>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
+                </div>
+            </div>
+        </header>
+    );
+};
+
+export default Header;
