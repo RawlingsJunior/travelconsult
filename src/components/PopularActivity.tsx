@@ -67,8 +67,8 @@ const PopularActivity = () => {
                                 key={activity.id}
                                 onClick={() => setActiveTab(activity.id)}
                                 className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all ${activeTab === activity.id
-                                        ? "bg-tourigo-secondary text-white shadow-lg"
-                                        : "bg-white text-gray-700 hover:bg-gray-100"
+                                    ? "bg-tourigo-secondary text-white shadow-lg"
+                                    : "bg-white text-gray-700 hover:bg-gray-100"
                                     }`}
                             >
                                 <activity.icon className={`w-6 h-6 ${activeTab === activity.id ? "text-white" : "text-gray-500"}`} />
