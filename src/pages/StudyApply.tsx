@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowRight, ArrowLeft, Upload, CheckCircle2 } from "lucide-react";
 import { COUNTRIES } from "@/lib/constants";
+import { toast } from "sonner";
 
 const GHANA_UNIVERSITIES = [
     "University of Ghana (UG)", "Kwame Nkrumah University of Science and Technology (KNUST)", "University of Cape Coast (UCC)",
@@ -54,7 +55,43 @@ const StudyApply = () => {
         agreedToTerms: false
     });
 
-    const handleNext = () => setStep(prev => prev + 1);
+    const validateStep1 = () => {
+        const { firstName, lastName, email, phone, dob, nationality, passportNumber } = formData;
+        if (!firstName || !lastName || !email || !phone || !dob || !nationality || !passportNumber) {
+            toast.error("Please fill in all personal details.");
+            return false;
+        }
+        return true;
+    };
+
+    const validateStep2 = () => {
+        const { highestQualification, school, graduationYear } = formData;
+        if (!highestQualification || !school || !graduationYear) {
+            toast.error("Please fill in all education details.");
+            return false;
+        }
+        if (school === "Other (Type Your School Name)" && !formData.otherSchool) {
+            toast.error("Please specify your school name.");
+            return false;
+        }
+        return true;
+    };
+
+    const validateStep3 = () => {
+        const { preferredCountry, preferredCourse, intake } = formData;
+        if (!preferredCountry || !preferredCourse || !intake) {
+            toast.error("Please fill in all preference details.");
+            return false;
+        }
+        return true;
+    };
+
+    const handleNext = () => {
+        if (step === 1 && !validateStep1()) return;
+        if (step === 2 && !validateStep2()) return;
+        if (step === 3 && !validateStep3()) return;
+        setStep(prev => prev + 1);
+    };
     const handleBack = () => setStep(prev => prev - 1);
 
     const handleSubmit = () => {
@@ -75,31 +112,31 @@ const StudyApply = () => {
         <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <Label>First Name</Label>
+                    <Label>First Name <span className="text-red-500">*</span></Label>
                     <Input placeholder="John" value={formData.firstName} onChange={e => setFormData({ ...formData, firstName: e.target.value })} />
                 </div>
                 <div className="space-y-2">
-                    <Label>Last Name</Label>
+                    <Label>Last Name <span className="text-red-500">*</span></Label>
                     <Input placeholder="Doe" value={formData.lastName} onChange={e => setFormData({ ...formData, lastName: e.target.value })} />
                 </div>
             </div>
             <div className="space-y-2">
-                <Label>Email Address</Label>
+                <Label>Email Address <span className="text-red-500">*</span></Label>
                 <Input type="email" placeholder="john@example.com" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
             </div>
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <Label>Phone Number</Label>
+                    <Label>Phone Number <span className="text-red-500">*</span></Label>
                     <Input placeholder="+233 55 123 4567" value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
                 </div>
                 <div className="space-y-2">
-                    <Label>Date of Birth</Label>
+                    <Label>Date of Birth <span className="text-red-500">*</span></Label>
                     <Input type="date" value={formData.dob} onChange={e => setFormData({ ...formData, dob: e.target.value })} />
                 </div>
             </div>
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <Label>Nationality</Label>
+                    <Label>Nationality <span className="text-red-500">*</span></Label>
                     <Select onValueChange={val => setFormData({ ...formData, nationality: val })}>
                         <SelectTrigger><SelectValue placeholder="Select Nationality" /></SelectTrigger>
                         <SelectContent className="max-h-[300px]">
@@ -110,7 +147,7 @@ const StudyApply = () => {
                     </Select>
                 </div>
                 <div className="space-y-2">
-                    <Label>Passport Number</Label>
+                    <Label>Passport Number <span className="text-red-500">*</span></Label>
                     <Input placeholder="G12345678" value={formData.passportNumber} onChange={e => setFormData({ ...formData, passportNumber: e.target.value })} />
                 </div>
             </div>
@@ -120,7 +157,7 @@ const StudyApply = () => {
     const renderStep2_Education = () => (
         <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
             <div className="space-y-2">
-                <Label>Highest Qualification</Label>
+                <Label>Highest Qualification <span className="text-red-500">*</span></Label>
                 <Select onValueChange={val => setFormData({ ...formData, highestQualification: val })}>
                     <SelectTrigger><SelectValue placeholder="Select Qualification" /></SelectTrigger>
                     <SelectContent>
@@ -132,7 +169,7 @@ const StudyApply = () => {
                 </Select>
             </div>
             <div className="space-y-2">
-                <Label>School / University Attended</Label>
+                <Label>School / University Attended <span className="text-red-500">*</span></Label>
                 <Select onValueChange={val => setFormData({ ...formData, school: val })}>
                     <SelectTrigger><SelectValue placeholder="Select School" /></SelectTrigger>
                     <SelectContent className="max-h-[300px]">
@@ -151,7 +188,7 @@ const StudyApply = () => {
                 )}
             </div>
             <div className="space-y-2">
-                <Label>Year of Graduation</Label>
+                <Label>Year of Graduation <span className="text-red-500">*</span></Label>
                 <Input type="number" placeholder="2023" value={formData.graduationYear} onChange={e => setFormData({ ...formData, graduationYear: e.target.value })} />
             </div>
         </div>
@@ -160,7 +197,7 @@ const StudyApply = () => {
     const renderStep3_Preferences = () => (
         <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
             <div className="space-y-2">
-                <Label>Preferred Country</Label>
+                <Label>Preferred Country <span className="text-red-500">*</span></Label>
                 <Select onValueChange={val => setFormData({ ...formData, preferredCountry: val })}>
                     <SelectTrigger><SelectValue placeholder="Select Country" /></SelectTrigger>
                     <SelectContent className="max-h-[300px]">
@@ -171,11 +208,11 @@ const StudyApply = () => {
                 </Select>
             </div>
             <div className="space-y-2">
-                <Label>Preferred Course</Label>
+                <Label>Preferred Course <span className="text-red-500">*</span></Label>
                 <Input placeholder="e.g. Computer Science" value={formData.preferredCourse} onChange={e => setFormData({ ...formData, preferredCourse: e.target.value })} />
             </div>
             <div className="space-y-2">
-                <Label>Preferred Intake</Label>
+                <Label>Preferred Intake <span className="text-red-500">*</span></Label>
                 <Select onValueChange={val => setFormData({ ...formData, intake: val })}>
                     <SelectTrigger><SelectValue placeholder="Select Intake" /></SelectTrigger>
                     <SelectContent>

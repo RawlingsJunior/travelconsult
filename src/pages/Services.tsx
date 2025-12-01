@@ -88,9 +88,9 @@ const Services = () => {
 
       {/* Hero Section */}
       <div className="bg-tourigo-primary text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-20" />
-        <div className="container mx-auto px-4 relative z-10 text-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-10" />
+        <div className="absolute inset-0 bg-[url('/services-hero.jpg')] bg-cover bg-center" />
+        <div className="container mx-auto px-4 relative z-20 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">World-Class Travel Services</h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
             Everything you need for a perfect journey, all in one place.

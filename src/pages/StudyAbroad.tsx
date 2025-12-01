@@ -36,7 +36,7 @@ const StudyAbroad = () => {
             {/* Hero Section */}
             <div className="relative bg-tourigo-primary text-white py-24 overflow-hidden">
                 <div className="absolute inset-0 bg-black/40 z-10" />
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center" />
+                <div className="absolute inset-0 bg-[url('/study-abroad-hero.jpg')] bg-cover bg-center" />
 
                 <div className="container mx-auto px-4 relative z-20 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">

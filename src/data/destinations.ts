@@ -148,28 +148,28 @@ const baseDestinations = [
         title: "Luxury in Dubai",
         location: "Dubai, UAE",
         description: "Experience the luxury of the desert. Visit the Burj Khalifa, shop at the Dubai Mall, and enjoy a desert safari.",
-        image: "https://images.unsplash.com/photo-1512453979798-5ea936a7fe65?auto=format&fit=crop&q=80&w=800"
+        image: "/dubai-luxury.jpg"
     },
     {
         id: "bali",
         title: "Tropical Bali",
         location: "Bali, Indonesia",
         description: "A tropical paradise. Relax on pristine beaches, visit ancient temples, and experience vibrant culture.",
-        image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=800"
+        image: "/tropical-bali.webp"
     },
     {
         id: "accra",
         title: "Vibrant Accra",
         location: "Accra, Ghana",
         description: "Discover the heart of West Africa. Visit historical castles, bustling markets, and beautiful beaches.",
-        image: "https://images.unsplash.com/photo-1606294767448-42f49553f206?auto=format&fit=crop&q=80&w=800"
+        image: "/vibrant-accra.webp"
     },
     {
         id: "capetown",
         title: "Scenic Cape Town",
         location: "Cape Town, South Africa",
         description: "Where mountains meet the sea. Visit Table Mountain, Robben Island, and the Cape Winelands.",
-        image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&q=80&w=800"
+        image: "/South Africa.jpg"
     }
 ];
 

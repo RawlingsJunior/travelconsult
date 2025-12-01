@@ -24,9 +24,12 @@ const Destinations = () => {
             {/* Hero Section */}
             <div className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
                 <div className="absolute inset-0">
-                    <img
-                        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=2000"
-                        alt="Destinations Hero"
+                    <video
+                        src="/plane2.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/40" />
@@ -84,17 +87,27 @@ const Destinations = () => {
 
             {/* Destinations Grid */}
             <div className="container mx-auto px-4 pt-32 pb-20">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div>
-                        <span className="text-tourigo-accent font-bold text-lg mb-2 block">Tours</span>
-                        <h2 className="text-4xl font-bold text-gray-900">Live Your Life Through Travel</h2>
-                        <p className="text-gray-500 mt-4 max-w-xl">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
+                <div className="relative rounded-3xl overflow-hidden mb-12 p-8 md:p-12">
+                    <div className="absolute inset-0">
+                        <img
+                            src="/destinations-banner.jpg"
+                            alt="Travel Background"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/50" />
                     </div>
-                    <Button className="bg-tourigo-accent hover:bg-orange-600 text-white rounded-full px-6">
-                        View All Packages
-                    </Button>
+                    <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-6">
+                        <div>
+                            <span className="text-tourigo-accent font-bold text-lg mb-2 block">Tours</span>
+                            <h2 className="text-4xl font-bold text-white">Live Your Life Through Travel</h2>
+                            <p className="text-gray-200 mt-4 max-w-xl">
+                                
+                            </p>
+                        </div>
+                        <Button className="bg-tourigo-accent hover:bg-orange-600 text-white rounded-full px-6">
+                            View All Packages
+                        </Button>
+                    </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
