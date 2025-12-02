@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import Header from "@/components/Header";
@@ -23,6 +24,7 @@ import HomeServices from "@/components/HomeServices";
 import StudyAbroadSection from "@/components/StudyAbroadSection";
 
 const Index = () => {
+  const navigate = useNavigate();
   const [showFlyer, setShowFlyer] = useState(false);
 
   useEffect(() => {
@@ -82,12 +84,15 @@ const Index = () => {
               className="w-full h-auto rounded-lg shadow-2xl"
             />
             <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-              <a
-                href="/study-abroad/china"
+              <button
+                onClick={() => {
+                  setShowFlyer(false);
+                  navigate("/study-abroad/china");
+                }}
                 className="bg-tourigo-accent hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all transform hover:scale-105"
               >
                 Learn More
-              </a>
+              </button>
             </div>
           </div>
         </DialogContent>
