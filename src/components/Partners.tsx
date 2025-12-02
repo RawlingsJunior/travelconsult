@@ -1,23 +1,37 @@
 const partners = [
-    { name: "Emirates", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/1200px-Emirates_logo.svg.png" },
-    { name: "Qatar Airways", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/1200px-Qatar_Airways_Logo.svg.png" },
-    { name: "British Airways", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/British_Airways_Logo.svg/1200px-British_Airways_Logo.svg.png" },
-    { name: "Delta", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Delta_Air_Lines_logo_%282007%29.svg/2560px-Delta_Air_Lines_logo_%282007%29.svg.png" },
-    { name: "Marriott", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Marriott_International.svg/2560px-Marriott_International.svg.png" },
-    { name: "Hilton", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Hilton_Worldwide_logo.svg/2560px-Hilton_Worldwide_logo.svg.png" }
+    { name: "Emirates", logo: "https://logos-world.net/wp-content/uploads/2020/03/Emirates-Logo.png" },
+    { name: "Qatar Airways", logo: "https://logos-world.net/wp-content/uploads/2020/03/Qatar-Airways-Logo.png" },
+    { name: "British Airways", logo: "https://logos-world.net/wp-content/uploads/2020/03/British-Airways-Logo.png" },
+    { name: "Delta", logo: "https://logos-world.net/wp-content/uploads/2021/02/Delta-Air-Lines-Logo.png" },
+    { name: "Marriott", logo: "https://logos-world.net/wp-content/uploads/2020/09/Marriott-Logo.png" },
+    { name: "Hilton", logo: "https://logos-world.net/wp-content/uploads/2020/11/Hilton-Logo.png" }
 ];
 
 const Partners = () => {
     return (
-        <section className="py-12 bg-white border-t border-gray-100">
-            <div className="container mx-auto px-4">
-                <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">
+        <section className="py-12 bg-white border-t border-gray-100 overflow-hidden">
+            <div className="container mx-auto px-4 mb-8">
+                <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest">
                     Trusted by Leading Partners
                 </p>
+            </div>
 
-                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    {partners.map((partner, index) => (
-                        <div key={index} className="w-24 md:w-32 h-12 flex items-center justify-center">
+            <div className="relative flex overflow-x-hidden group">
+                <div className="flex animate-marquee whitespace-nowrap">
+                    {[...partners, ...partners, ...partners].map((partner, index) => (
+                        <div key={index} className="mx-8 md:mx-16 w-32 md:w-40 h-16 flex items-center justify-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                            <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                className="max-w-full max-h-full object-contain"
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                <div className="flex animate-marquee whitespace-nowrap absolute top-0 left-0">
+                    {[...partners, ...partners, ...partners].map((partner, index) => (
+                        <div key={index} className="mx-8 md:mx-16 w-32 md:w-40 h-16 flex items-center justify-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
                             <img
                                 src={partner.logo}
                                 alt={partner.name}

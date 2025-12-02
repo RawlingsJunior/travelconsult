@@ -1,81 +1,17 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plane, Hotel, Map, Car, FileCheck, Briefcase, ArrowRight, GraduationCap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const SERVICES = [
-  {
-    id: "flight",
-    title: "Flight Booking",
-    description: "Get the best deals on domestic and international flights. We handle all the ticketing details for you.",
-    icon: Plane,
-    color: "text-blue-500",
-    bgColor: "bg-blue-50",
-    image: "/flight%20booking.avif"
-  },
-  {
-    id: "hotel",
-    title: "Hotel Reservation",
-    description: "Luxury stays to budget-friendly accommodations. We find the perfect place for you to rest.",
-    icon: Hotel,
-    color: "text-orange-500",
-    bgColor: "bg-orange-50",
-    image: "/hotel-booking.jpg"
-  },
-  {
-    id: "tour",
-    title: "Tour Packages",
-    description: "Curated holiday packages for families, couples, and solo travelers. Experience the world with us.",
-    icon: Map,
-    color: "text-green-500",
-    bgColor: "bg-green-50",
-    image: "/Europe-Tour-Packages-from-Mumbai.webp"
-  },
-  {
-    id: "car",
-    title: "Car Rentals",
-    description: "Reliable car rental services for your road trips and city commutes. Choose from a wide fleet.",
-    icon: Car,
-    color: "text-purple-500",
-    bgColor: "bg-purple-50",
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "visa",
-    title: "Visa Assistance",
-    description: "Hassle-free visa application guidance. We help you navigate the paperwork with ease.",
-    icon: FileCheck,
-    color: "text-red-500",
-    bgColor: "bg-red-50",
-    image: "/Visa%20Application.avif"
-  },
-  {
-    id: "corporate",
-    title: "Corporate Travel",
-    description: "Tailored travel solutions for businesses. Meetings, incentives, conferences, and exhibitions (MICE).",
-    icon: Briefcase,
-    color: "text-gray-700",
-    bgColor: "bg-gray-100",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: "study",
-    title: "Study Abroad",
-    description: "Expert guidance for university applications, visas, and settling in top destinations like UK, USA, and Canada.",
-    icon: GraduationCap,
-    color: "text-indigo-500",
-    bgColor: "bg-indigo-50",
-    image: "/study-abroad-home.jpg"
-  }
-];
+import { DETAILED_SERVICES } from "@/data/services";
 
 const Services = () => {
   const navigate = useNavigate();
 
   const handleBook = (serviceId: string) => {
-    if (serviceId === "study") {
+    if (serviceId === "school-app" || serviceId === "online-school") {
       navigate("/study-abroad");
     } else {
       navigate("/booking", { state: { serviceType: serviceId } });
@@ -101,7 +37,7 @@ const Services = () => {
       {/* Services Grid */}
       <div className="container mx-auto px-4 py-20 -mt-10 relative z-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service, index) => (
+          {DETAILED_SERVICES.map((service, index) => (
             <Card key={service.id} className="group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden animate-in fade-in slide-in-from-bottom-8" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="h-48 overflow-hidden relative">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
@@ -110,9 +46,6 @@ const Services = () => {
                   alt={service.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className={`absolute top-4 right-4 w-12 h-12 rounded-full ${service.bgColor} flex items-center justify-center z-20 shadow-lg`}>
-                  <service.icon className={`w-6 h-6 ${service.color}`} />
-                </div>
               </div>
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-tourigo-primary transition-colors">
@@ -124,12 +57,19 @@ const Services = () => {
                   {service.description}
                 </CardDescription>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex gap-3">
+                <Button
+                  variant="outline"
+                  onClick={() => navigate(`/services/${service.id}`)}
+                  className="flex-1 border-2 hover:bg-gray-50"
+                >
+                  Details
+                </Button>
                 <Button
                   onClick={() => handleBook(service.id)}
-                  className="w-full bg-white text-tourigo-primary border-2 border-tourigo-primary hover:bg-tourigo-primary hover:text-white transition-all group-hover:shadow-md"
+                  className="flex-1 bg-tourigo-primary hover:bg-tourigo-primary/90 text-white"
                 >
-                  Book Now <ArrowRight className="w-4 h-4 ml-2" />
+                  Book Now
                 </Button>
               </CardFooter>
             </Card>

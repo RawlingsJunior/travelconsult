@@ -19,14 +19,9 @@ const photos = [
         span: "md:col-span-1 md:row-span-1"
     },
     {
-        src: "https://images.unsplash.com/photo-1606294767448-42f49553f206?auto=format&fit=crop&q=80&w=800",
-        alt: "Accra, Ghana",
-        span: "md:col-span-1 md:row-span-1"
-    },
-    {
         src: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&q=80&w=800",
         alt: "Venice, Italy",
-        span: "md:col-span-1 md:row-span-1"
+        span: "md:col-span-2 md:row-span-1"
     }
 ];
 

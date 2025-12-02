@@ -149,6 +149,30 @@ const COUNTRY_DATA: Record<string, any> = {
             "Visa Application Form",
             "Medical Fitness Test"
         ]
+    },
+    china: {
+        name: "China",
+        image: "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&q=80&w=800",
+        whyChoose: [
+            "Fully Funded Scholarships available for international students.",
+            "Monthly allowances provided for living expenses.",
+            "World-class universities with modern facilities.",
+            "Opportunity to learn Mandarin and experience rich culture."
+        ],
+        universities: [
+            { name: "Tsinghua University", location: "Beijing" },
+            { name: "Peking University", location: "Beijing" },
+            { name: "Fudan University", location: "Shanghai" },
+            { name: "Zhejiang University", location: "Hangzhou" }
+        ],
+        requirements: [
+            "Valid Passport",
+            "Academic Transcripts & Certificates",
+            "Passport-sized Photographs",
+            "Physical Examination Record",
+            "Non-Criminal Record Certificate",
+            "Study Plan / Research Proposal"
+        ]
     }
 };
 

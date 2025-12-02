@@ -62,7 +62,7 @@ const Contacts = () => {
                         </div>
                         <div>
                             <h3 className="font-bold text-lg text-gray-900 mb-2">Visit Us</h3>
-                            <p className="text-sm text-gray-500">123 Travel Street, City, Country</p>
+                            <p className="text-sm text-gray-500">Obuasi Bidease</p>
                         </div>
                     </div>
                     <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex items-start gap-4 border border-gray-100 group">
@@ -71,7 +71,7 @@ const Contacts = () => {
                         </div>
                         <div>
                             <h3 className="font-bold text-lg text-gray-900 mb-2">Call Us</h3>
-                            <p className="text-sm text-gray-500">+1 234 567 890</p>
+                            <p className="text-sm text-gray-500">+233 545 726 227</p>
                         </div>
                     </div>
                     <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow flex items-start gap-4 border border-gray-100 group">

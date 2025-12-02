@@ -37,18 +37,13 @@ const HOTELS = [
     { id: "5star", name: "Royal Palace (5★)", description: "Suite, All-inclusive, Spa access" },
 ];
 
-import { useAuth } from "@/context/AuthContext";
+
 
 const BookingPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { isAuthenticated } = useAuth();
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            navigate("/login");
-        }
-    }, [isAuthenticated, navigate]);
+    // Auth check removed to allow guest booking
 
     // Default state
     const defaultPackage = { name: "Standard Package", duration: 5 };

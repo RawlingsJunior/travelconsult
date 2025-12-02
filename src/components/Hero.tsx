@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Users, Search, ArrowLeft, ArrowRight } from "lucide-react";
 import BookingModal from "./BookingModal";
+import ScrollReveal from "./ScrollReveal";
 
 const Hero = () => {
     const [currentVideo, setCurrentVideo] = useState(0);
@@ -37,26 +38,36 @@ const Hero = () => {
 
             <div className="container mx-auto relative z-10 h-full px-4 md:px-12 flex flex-col items-center justify-center text-center">
                 <div className="max-w-4xl space-y-6">
-                    <span className="bg-tourigo-accent text-white px-4 py-1 rounded-full text-sm font-semibold inline-block">
-                        It's Time To Travel
-                    </span>
-                    <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
-                        Explore <br />
-                        With us <span className="text-tourigo-accent">Now</span>
-                    </h1>
-                    <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                    <ScrollReveal animation="fade-in" delay={200}>
+                        <span className="bg-tourigo-accent text-white px-4 py-1 rounded-full text-sm font-semibold inline-block">
+                            It's Time To Travel
+                        </span>
+                    </ScrollReveal>
 
-                    </p>
+                    <ScrollReveal animation="slide-up" delay={400}>
+                        <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
+                            Explore <br />
+                            With Elshadai Millenium Travel and Shopping <span className="text-tourigo-accent">Now</span>
+                        </h1>
+                    </ScrollReveal>
 
-                    <div className="flex justify-center gap-4 pt-4">
-                        <Link to="/services">
-                            <Button
-                                className="bg-tourigo-secondary hover:bg-tourigo-secondary/90 text-white rounded-full px-8 py-6"
-                            >
-                                Discover our services
-                            </Button>
-                        </Link>
-                    </div>
+                    <ScrollReveal animation="slide-up" delay={600}>
+                        <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                            Discover the world's most breathtaking destinations with our premium travel packages.
+                        </p>
+                    </ScrollReveal>
+
+                    <ScrollReveal animation="scale-in" delay={800}>
+                        <div className="flex justify-center gap-4 pt-4">
+                            <Link to="/services">
+                                <Button
+                                    className="bg-tourigo-secondary hover:bg-tourigo-secondary/90 text-white rounded-full px-8 py-6 transition-transform hover:scale-105"
+                                >
+                                    Discover our services
+                                </Button>
+                            </Link>
+                        </div>
+                    </ScrollReveal>
                 </div>
 
                 {/* Navigation Arrows */}

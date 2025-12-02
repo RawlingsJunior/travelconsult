@@ -19,9 +19,9 @@ const Header = () => {
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50">
             {/* Top Bar - Hidden on Mobile */}
-            <div className="hidden md:flex bg-tourigo-primary text-white py-2 px-4 md:px-12 text-xs justify-between items-center">
+            <div className="hidden md:flex bg-tourigo-primary text-white py-2 px-4 md:px-12 text-sm justify-between items-center">
                 <div className="flex gap-4">
-                    <span>+233-552-945 - 333</span>
+                    <span>0545726227</span>
                     <span>inf@mytravelconsult.com</span>
                 </div>
                 <div className="flex gap-4">
@@ -31,16 +31,15 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="py-4 px-4 md:px-12 flex items-center justify-between">
+            <div className="py-2 px-4 md:px-12 flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-tourigo-accent rounded-full flex items-center justify-center text-white font-bold">
-                        T
+                <Link to="/" className="flex items-center gap-2">
+                    <img src="/logo.jpg" alt="Elshadai Millenium Travel and Shopping" className="h-12 sm:h-16 md:h-24 w-auto object-contain" />
+                    <div className="flex flex-col">
+                        <span className="font-bold text-sm sm:text-lg md:text-2xl text-tourigo-primary leading-tight">Elshadai Millenium</span>
+                        <span className="font-medium text-[10px] sm:text-xs md:text-sm text-gray-600 tracking-wider">Travel and Shopping</span>
                     </div>
-                    <Link to="/" className="text-2xl font-bold text-tourigo-primary tracking-tight">
-                        Travel Consult
-                    </Link>
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center gap-8">
@@ -48,7 +47,7 @@ const Header = () => {
                         <Link
                             key={link.name}
                             to={link.path}
-                            className="text-sm font-medium text-gray-700 hover:text-tourigo-accent transition-colors"
+                            className="text-base font-medium text-gray-700 hover:text-tourigo-accent transition-colors"
                         >
                             {link.name}
                         </Link>
@@ -70,7 +69,7 @@ const Header = () => {
                     </Link>
 
                     <Link to="/booking">
-                        <Button className="bg-tourigo-primary hover:bg-tourigo-primary/90 text-white rounded-full px-6">
+                        <Button className="bg-tourigo-primary hover:bg-tourigo-primary/90 text-white rounded-full px-6 text-base font-medium">
                             Book Now
                         </Button>
                     </Link>
@@ -87,11 +86,12 @@ const Header = () => {
                         <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900 border-l-gray-800 text-white p-0">
                             <div className="flex flex-col h-full">
                                 <div className="p-6 border-b border-gray-800">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-8 h-8 bg-tourigo-accent rounded-full flex items-center justify-center text-white font-bold">
-                                            T
+                                    <div className="flex items-center gap-3">
+                                        <img src="/logo.jpg" alt="Elshadai Millenium Travel and Shopping" className="h-16 w-auto object-contain bg-white rounded-md p-1" />
+                                        <div className="flex flex-col">
+                                            <span className="text-lg font-bold tracking-tight text-white">Elshadai Millenium</span>
+                                            <span className="text-xs font-medium text-gray-400">Travel and Shopping</span>
                                         </div>
-                                        <span className="text-xl font-bold tracking-tight">My Travel Consult</span>
                                     </div>
                                 </div>
 

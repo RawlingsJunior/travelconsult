@@ -20,10 +20,10 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
-                T
+                E
               </div>
               <span className="text-2xl font-bold text-white tracking-tight">
-                My Travel Consult
+                Elshadai Millenium
               </span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
@@ -75,22 +75,22 @@ const Footer = () => {
             <ul className="space-y-4 text-sm text-gray-400">
               <li className="flex items-start gap-3">
                 <span className="text-orange-500 mt-1">📍</span>
-                <span>Independence Avenue,<br />Accra, Ghana</span>
+                <span>Obuasi Bidease</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-orange-500">📞</span>
-                <span>+233 552 945 333</span>
+                <span>0545726227</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-orange-500">✉️</span>
-                <span>info@mytravelconsult.com</span>
+                <span>info@elshadaimillenium.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
-          <p>&copy; 2025 My Travel Consult. All rights reserved.</p>
+          <p>&copy; 2025 Elshadai Millenium Travel and Shopping. All rights reserved.</p>
 
           <div className="flex items-center gap-4">
             <span className="text-xs uppercase tracking-widest text-gray-600">We Accept</span>

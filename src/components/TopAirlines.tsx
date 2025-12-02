@@ -1,38 +1,41 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
+
 
 const airlines = [
-    { name: "British Airways", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/British_Airways_Logo.svg/1200px-British_Airways_Logo.svg.png" },
-    { name: "Delta", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Delta_Air_Lines_logo_%282007%29.svg/2560px-Delta_Air_Lines_logo_%282007%29.svg.png" },
+
     { name: "Qatar Airways", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/1200px-Qatar_Airways_Logo.svg.png" },
     { name: "Emirates", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/1200px-Emirates_logo.svg.png" },
+    { name: "Lufthansa", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lufthansa_Logo_2018.svg/1200px-Lufthansa_Logo_2018.svg.png" },
+    { name: "Air France", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Air_France_Logo.svg/1200px-Air_France_Logo.svg.png" },
+    { name: "KLM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/KLM_logo.svg/1200px-KLM_logo.svg.png" },
 ];
 
 const TopAirlines = () => {
     return (
-        <section className="py-20 px-4 md:px-12 bg-white">
-            <div className="container mx-auto">
-                <div className="text-center mb-12">
+        <section className="py-20 bg-white overflow-hidden">
+            <div className="container mx-auto px-4 mb-12">
+                <div className="text-center">
                     <span className="text-orange-500 font-script text-xl">Top Airlines</span>
                     <h2 className="text-3xl font-bold text-gray-900 mt-2">Search Top Airlines</h2>
                 </div>
+            </div>
 
-                <div className="relative">
-                    <div className="flex items-center gap-6 overflow-x-auto pb-8 hide-scrollbar justify-center">
-                        <button className="w-10 h-10 rounded-full bg-tourex-sky text-white flex-shrink-0 flex items-center justify-center hover:bg-tourex-sky/90 transition-colors">
-                            <ArrowLeft className="w-5 h-5" />
-                        </button>
+            <div className="relative flex overflow-x-hidden group">
+                <div className="flex animate-marquee whitespace-nowrap gap-8">
+                    {[...airlines, ...airlines, ...airlines].map((airline, index) => (
+                        <div key={index} className="flex items-center gap-4 bg-gray-50 px-8 py-6 rounded-2xl min-w-[250px] hover:shadow-lg transition-shadow cursor-pointer mx-4">
+                            <img src={airline.logo} alt={airline.name} className="w-8 h-8 object-contain" />
+                            <span className="font-semibold text-gray-700">{airline.name}</span>
+                        </div>
+                    ))}
+                </div>
 
-                        {airlines.map((airline) => (
-                            <div key={airline.name} className="flex items-center gap-4 bg-gray-50 px-8 py-6 rounded-2xl min-w-[250px] hover:shadow-lg transition-shadow cursor-pointer">
-                                <img src={airline.logo} alt={airline.name} className="w-8 h-8 object-contain" />
-                                <span className="font-semibold text-gray-700">{airline.name}</span>
-                            </div>
-                        ))}
-
-                        <button className="w-10 h-10 rounded-full border border-gray-200 flex-shrink-0 flex items-center justify-center hover:bg-tourex-sky hover:text-white hover:border-tourex-sky transition-colors">
-                            <ArrowRight className="w-5 h-5" />
-                        </button>
-                    </div>
+                <div className="flex animate-marquee whitespace-nowrap gap-8 absolute top-0 left-0">
+                    {[...airlines, ...airlines, ...airlines].map((airline, index) => (
+                        <div key={index} className="flex items-center gap-4 bg-gray-50 px-8 py-6 rounded-2xl min-w-[250px] hover:shadow-lg transition-shadow cursor-pointer mx-4">
+                            <img src={airline.logo} alt={airline.name} className="w-8 h-8 object-contain" />
+                            <span className="font-semibold text-gray-700">{airline.name}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

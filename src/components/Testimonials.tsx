@@ -10,30 +10,30 @@ import {
 
 const testimonials = [
     {
-        name: "Sarah Johnson",
+        name: "Mr. Elvis",
         role: "Adventure Traveler",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150",
+        image: "/testimonial-1.jpg",
         rating: 5,
-        text: "My Travel Consult made our honeymoon absolutely magical! The attention to detail and personalized itinerary were beyond our expectations. Highly recommended!"
+        text: "Elshadai Millenium Travel and Shopping made our honeymoon absolutely magical! The attention to detail and personalized itinerary were beyond our expectations. Highly recommended!"
     },
     {
-        name: "Michael Chen",
+        name: "Asomani Rawlings Junior",
         role: "Business Traveler",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150",
+        image: "/image.jpg",
         rating: 5,
         text: "Professional, efficient, and reliable. They handled my complex visa requirements and flight bookings seamlessly. I wouldn't travel with anyone else."
     },
     {
-        name: "Emily Davis",
+        name: "Kwame Darlington Junior",
         role: "Family Vacationer",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150",
+        image: "/image2.jpg",
         rating: 5,
         text: "Traveling with kids can be stressful, but the team took care of everything. From kid-friendly hotels to amazing tours, it was our best family trip ever."
     },
     {
-        name: "David Wilson",
+        name: "Asomani Rawlings Junior",
         role: "Solo Explorer",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
+        image: "/image1.jpg",
         rating: 4,
         text: "Great experience overall. The local guides they partnered with were knowledgeable and friendly. Can't wait for my next adventure with them."
     }

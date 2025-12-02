@@ -17,6 +17,7 @@ const COUNTRIES = [
     { id: "australia", name: "Australia", flag: "🇦🇺", tuition: "$18k - $40k", deadline: "Feb / July" },
     { id: "germany", name: "Germany", flag: "🇩🇪", tuition: "Free - $3k", deadline: "Oct / April" },
     { id: "dubai", name: "Dubai", flag: "🇦🇪", tuition: "$10k - $25k", deadline: "Rolling" },
+    { id: "china", name: "China", flag: "🇨🇳", tuition: "Scholarships Available", deadline: "Mar / Sept" },
 ];
 
 const COURSES = [
@@ -79,18 +80,55 @@ const StudyAbroad = () => {
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {[
-                        { icon: FileCheck, title: "Admission Support", desc: "Expert guidance on university selection and application processing." },
-                        { icon: Plane, title: "Visa Assistance", desc: "98% visa success rate with our meticulous documentation support." },
-                        { icon: GraduationCap, title: "Scholarship Guidance", desc: "We help you find and apply for partial and full scholarships." },
-                        { icon: Users, title: "24/7 Counseling", desc: "Dedicated counselors available to answer all your queries." },
-                        { icon: Globe, title: "Travel Support", desc: "Flight booking, accommodation, and airport pickup arrangements." },
-                        { icon: CheckCircle2, title: "Transparent Process", desc: "No hidden fees. Track your application status in real-time." },
+                        {
+                            icon: FileCheck,
+                            title: "Admission Support",
+                            desc: "Expert guidance on university selection and application processing.",
+                            image: "/admission-support.jpg"
+                        },
+                        {
+                            icon: Plane,
+                            title: "Visa Assistance",
+                            desc: "98% visa success rate with our meticulous documentation support.",
+                            image: "/visa-assistance.jpg"
+                        },
+                        {
+                            icon: GraduationCap,
+                            title: "Scholarship Guidance",
+                            desc: "We help you find and apply for partial and full scholarships.",
+                            image: "/scholarship-guidance.jpg"
+                        },
+                        {
+                            icon: Users,
+                            title: "24/7 Counseling",
+                            desc: "Dedicated counselors available to answer all your queries.",
+                            image: "/counseling.jpg"
+                        },
+                        {
+                            icon: Globe,
+                            title: "Travel Support",
+                            desc: "Flight booking, accommodation, and airport pickup arrangements.",
+                            image: "/travel-support.jpg"
+                        },
+                        {
+                            icon: CheckCircle2,
+                            title: "Transparent Process",
+                            desc: "No hidden fees. Track your application status in real-time.",
+                            image: "/transparent-process.jpg"
+                        },
                     ].map((item, idx) => (
-                        <Card key={idx} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                            <CardContent className="p-8 text-center">
-                                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tourigo-primary group-hover:text-white transition-colors">
-                                    <item.icon className="w-8 h-8 text-tourigo-primary group-hover:text-white" />
+                        <Card key={idx} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                            <div className="h-64 relative overflow-hidden">
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg z-20">
+                                    <item.icon className="w-8 h-8 text-tourigo-primary" />
                                 </div>
+                            </div>
+                            <CardContent className="pt-12 pb-8 px-6 text-center">
                                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                                 <p className="text-gray-600">{item.desc}</p>
                             </CardContent>
@@ -115,7 +153,7 @@ const StudyAbroad = () => {
                             <Card key={country.id} className="overflow-hidden hover:shadow-xl transition-all cursor-pointer group" onClick={() => navigate(`/study-abroad/${country.id}`)}>
                                 <div className="h-48 bg-gray-200 relative">
                                     <img
-                                        src={country.id === "usa" ? "/study-usa.jpg" : country.id === "uk" ? "/UK.webp" : country.id === "canada" ? "/study-canada.png" : country.id === "australia" ? "/study-australia.jpg" : country.id === "germany" ? "/study-germany.jpg" : country.id === "dubai" ? "/study-dubai.jpg" : `https://source.unsplash.com/800x600/?${country.name.replace(" ", "+")},landmark`}
+                                        src={country.id === "usa" ? "/study-usa.jpg" : country.id === "uk" ? "/UK.webp" : country.id === "canada" ? "/study-canada.png" : country.id === "australia" ? "/study-australia.jpg" : country.id === "germany" ? "/study-germany.jpg" : country.id === "dubai" ? "/study-dubai.jpg" : country.id === "china" ? "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&q=80&w=800" : `https://source.unsplash.com/800x600/?${country.name.replace(" ", "+")},landmark`}
                                         alt={country.name}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
@@ -215,7 +253,7 @@ const StudyAbroad = () => {
                                     </div>
                                     <div>
                                         <h4 className="font-bold">Visit Our Office</h4>
-                                        <p className="text-gray-400">123 Travel Plaza, Accra, Ghana</p>
+                                        <p className="text-gray-400">Obuasi Bidease</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
