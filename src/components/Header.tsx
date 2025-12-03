@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Facebook, Twitter, Linkedin, User, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -5,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { useAuth } from "@/context/AuthContext";
 
 const Header = () => {
-
+    const [isOpen, setIsOpen] = useState(false);
     const { isAuthenticated } = useAuth();
     const navLinks = [
         { name: "Home", path: "/" },
@@ -77,7 +78,7 @@ const Header = () => {
 
                 {/* Mobile Menu Trigger */}
                 <div className="lg:hidden">
-                    <Sheet>
+                    <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" className="hover:bg-gray-100 rounded-full">
                                 <Menu className="w-6 h-6 text-gray-900" />
@@ -95,42 +96,39 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-8 p-6 mt-4">
+                                <div className="flex flex-col gap-8 p-6 mt-4 overflow-y-auto pb-20">
                                     <nav className="flex flex-col gap-6">
                                         {navLinks.map((link, idx) => (
-                                            <SheetClose asChild key={link.name}>
-                                                <Link
-                                                    to={link.path}
-                                                    className="text-lg font-medium text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-3 animate-in slide-in-from-right-8 fade-in fill-mode-forwards"
-                                                    style={{ animationDelay: `${idx * 100}ms` }}
-                                                >
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-tourigo-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                                    {link.name}
-                                                </Link>
-                                            </SheetClose>
+                                            <Link
+                                                key={link.name}
+                                                to={link.path}
+                                                onClick={() => setIsOpen(false)}
+                                                className="text-lg font-medium text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-3 animate-in slide-in-from-right-8 fade-in fill-mode-forwards"
+                                                style={{ animationDelay: `${idx * 100}ms` }}
+                                            >
+                                                <span className="w-1.5 h-1.5 rounded-full bg-tourigo-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                {link.name}
+                                            </Link>
                                         ))}
                                     </nav>
 
                                     <div className="flex flex-col gap-4 mt-auto animate-in slide-in-from-bottom-8 fade-in duration-700 delay-500">
-                                        <SheetClose asChild>
-                                            <Link to="/booking">
-                                                <Button
-                                                    className="bg-tourigo-accent hover:bg-orange-600 text-white rounded-full w-full h-12 text-lg font-bold shadow-lg shadow-orange-900/20"
-                                                >
-                                                    Book Now
-                                                </Button>
-                                            </Link>
-                                        </SheetClose>
-
-                                        <SheetClose asChild>
-                                            <Link
-                                                to={isAuthenticated ? "/dashboard" : "/login"}
-                                                className="flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors py-2"
+                                        <Link to="/booking" onClick={() => setIsOpen(false)}>
+                                            <Button
+                                                className="bg-tourigo-accent hover:bg-orange-600 text-white rounded-full w-full h-12 text-lg font-bold shadow-lg shadow-orange-900/20"
                                             >
-                                                <User className="w-5 h-5" />
-                                                <span className="font-medium">My Account</span>
-                                            </Link>
-                                        </SheetClose>
+                                                Book Now
+                                            </Button>
+                                        </Link>
+
+                                        <Link
+                                            to={isAuthenticated ? "/dashboard" : "/login"}
+                                            onClick={() => setIsOpen(false)}
+                                            className="flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors py-4 border border-gray-800 rounded-lg hover:bg-gray-800"
+                                        >
+                                            <User className="w-5 h-5" />
+                                            <span className="font-medium">My Account</span>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
