@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useState, useEffect } from "react";
+
 import { useNavigate, Link } from "react-router-dom";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
