@@ -64,9 +64,9 @@ const StudyAbroad = () => {
                         <Button onClick={() => navigate("/study-abroad/apply")} className="bg-white text-tourigo-primary hover:bg-gray-100 h-14 px-8 text-lg font-bold">
                             Apply Now
                         </Button>
-                        <Button variant="outline" className="border-white text-white hover:bg-white/10 h-14 px-8 text-lg font-bold">
+                        {/* <Button variant="outline" className="border-white text-white hover:bg-white/10 h-14 px-8 text-lg font-bold">
                             Book Free Consultation
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </div>
