@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import Header from "@/components/Header";
@@ -81,18 +82,16 @@ const Index = () => {
             <img
               src="/study-china-flyer.jpg"
               alt="Study in China Scholarship"
-              className="w-full h-auto rounded-lg shadow-2xl"
+              className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
             />
             <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-              <button
-                onClick={() => {
-                  setShowFlyer(false);
-                  navigate("/study-abroad/china");
-                }}
+              <Link
+                to="/study-abroad/china"
+                onClick={() => setShowFlyer(false)}
                 className="bg-tourigo-accent hover:bg-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all transform hover:scale-105"
               >
                 Learn More
-              </button>
+              </Link>
             </div>
           </div>
         </DialogContent>
